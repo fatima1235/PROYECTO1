@@ -1,0 +1,39 @@
+char dato;
+void setup()
+{
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  if(Serial.avaliable())
+  {
+    dato=Serial.read();
+    if(dato=='z')
+    {
+      digitalWrite(7, HIGH);
+    }
+    else if(dato=='i')
+    {
+      digitalWrite(7, LOW);
+    }
+    
+    
+    if(Serial.avaliable())
+  {
+    dato=Serial.read();
+    if(dato=='p')
+    {
+      digitalWrite(8, HIGH);
+    }
+    else if(dato=='l')
+    {
+      digitalWrite(8, LOW);
+    }
+    
+  }
+  delay(100);
+}
