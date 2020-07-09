@@ -3,14 +3,15 @@ void setup()
 {
   pinMode(7, OUTPUT);
   pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
   
   Serial.begin(9600);
 }
 
 void loop()
 {
-  if(Serial.avaliable())
-  {
+    if(Serial.avaliable())
+    {
     dato=Serial.read();
     if(dato=='z')
     {
@@ -23,7 +24,7 @@ void loop()
     
     
     if(Serial.avaliable())
-  {
+  	{
     dato=Serial.read();
     if(dato=='p')
     {
@@ -34,6 +35,19 @@ void loop()
       digitalWrite(8, LOW);
     }
     
+    if(Serial.avaliable())
+    {
+    dato=Serial.read();
+    if(dato=='k')
+    {
+      digitalWrite(9, HIGH);
+    }
+    else if(dato=='f')
+    {
+      digitalWrite(9, LOW);
+    }
+    
+  }
   }
   delay(100);
 }
